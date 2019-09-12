@@ -15,13 +15,13 @@ class ComposerStaticInit9b889682730addbe05a3d4509d3f9261
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
+        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-        'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
     );
 
@@ -116,6 +116,7 @@ class ComposerStaticInit9b889682730addbe05a3d4509d3f9261
             'Facade\\Ignition\\' => 16,
             'Facade\\IgnitionContracts\\' => 25,
             'Facade\\FlareClient\\' => 19,
+            'Facade\\CodeEditor\\' => 18,
         ),
         'E' => 
         array (
@@ -338,6 +339,10 @@ class ComposerStaticInit9b889682730addbe05a3d4509d3f9261
         'Facade\\FlareClient\\' => 
         array (
             0 => __DIR__ . '/..' . '/facade/flare-client-php/src',
+        ),
+        'Facade\\CodeEditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/facade/ignition-code-editor/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -594,6 +599,12 @@ class ComposerStaticInit9b889682730addbe05a3d4509d3f9261
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
+        'Facade\\CodeEditor\\CodeEditorServiceProvider' => __DIR__ . '/..' . '/facade/ignition-code-editor/src/CodeEditorServiceProvider.php',
+        'Facade\\CodeEditor\\Http\\Controllers\\Controller' => __DIR__ . '/..' . '/facade/ignition-code-editor/src/Http/Controllers/Controller.php',
+        'Facade\\CodeEditor\\Http\\Controllers\\FileContentsController' => __DIR__ . '/..' . '/facade/ignition-code-editor/src/Http/Controllers/FileContentsController.php',
+        'Facade\\CodeEditor\\Http\\Controllers\\SaveFileContentController' => __DIR__ . '/..' . '/facade/ignition-code-editor/src/Http/Controllers/SaveFileContentController.php',
+        'Facade\\CodeEditor\\Http\\Requests\\FileContentsRequest' => __DIR__ . '/..' . '/facade/ignition-code-editor/src/Http/Requests/FileContentsRequest.php',
+        'Facade\\CodeEditor\\StackTraceTab' => __DIR__ . '/..' . '/facade/ignition-code-editor/src/StackTraceTab.php',
         'Facade\\FlareClient\\Api' => __DIR__ . '/..' . '/facade/flare-client-php/src/Api.php',
         'Facade\\FlareClient\\Concerns\\HasContext' => __DIR__ . '/..' . '/facade/flare-client-php/src/Concerns/HasContext.php',
         'Facade\\FlareClient\\Concerns\\UsesTime' => __DIR__ . '/..' . '/facade/flare-client-php/src/Concerns/UsesTime.php',
