@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Livewire\User;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,6 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::livewire('/home', 'user')->name('home');
+Route::livewire('/post', 'post')->name('post');
+Livewire::component('user', User::class);

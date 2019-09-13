@@ -26,11 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         // auth()->user()->givePermissionTo('write posts');
-        $role=Role::find(3);
-        
-        auth()->user()->assignRole($role);
+        // $role=Role::find(3);
 
-        $users = User::with('permissions','roles')->get();
-        return view('home', \compact('users'));
+        // auth()->user()->assignRole($role);
+
+        // $users = User::with('permissions','roles')->get();
+        // return view('home', \compact('users'));
+        return view('home');
     }
 }
