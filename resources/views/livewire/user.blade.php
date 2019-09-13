@@ -12,7 +12,7 @@
                                 <input type="email" wire:model="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ $email }}">
                             </div>
                             <div class="col">
-                                <input type="password" wire:model="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" value="{{ $password }}">
+                                <input type="password" wire:model="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
                             </div>
                             @if ($edit)
                             <button type="submit" wire:click="update({{ $id }})" class="btn btn-primary">Update</button>

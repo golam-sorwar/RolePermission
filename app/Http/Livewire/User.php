@@ -27,6 +27,24 @@ class User extends Component
         });
     }
 
+    public function insert()
+    {
+        $this->validate([
+            'name' => 'required',
+            'email' => 'email|required',
+            'password' => 'required|min:5'
+        ]);
+        UserInfo::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'email_verified_at' => now(),
+            'password' => Hash::make($this->password),
+            'remember_token' => Str::random(10)
+        ]);
+
+        $this->name = $this->email = $this->password = '';
+    }
+
     public function edit($id)
     {
         $info = UserInfo::find($id);
@@ -41,14 +59,15 @@ class User extends Component
         $this->validate([
             'name' => 'required',
             'email' => 'email|required',
-            'password' => 'required|min:5'
         ]);
 
         $info = UserInfo::find($id);
         $info->name = $this->name;
         $info->email = $this->email;
         $info->email_verified_at = now();
-        $info->password = Hash::make($this->password);
+        if($this->password){
+            $info->password = Hash::make($this->password);
+        }
         $info->remember_token = Str::random(10);
         $info->save();
 
