@@ -3,6 +3,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
+                    @role('Admin')
                     <div class="insert">
                         <div class="form-row">
                             <div class="col">
@@ -12,7 +13,7 @@
                                 <input type="email" wire:model="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ $email }}">
                             </div>
                             <div class="col">
-                                <input type="password" wire:model="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" autocomplete="new-password">
+                                <input type="password" wire:model="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" autocomplete="new-password">
                             </div>
                             @if ($edit)
                             <button type="submit" wire:click="update({{ $id }})" class="btn btn-primary">Update</button>
@@ -21,20 +22,25 @@
                             @endif
                         </div>
                     </div>
+                    @else
+                    <h5>Users</h5>
+                    @endrole
                 </div>
 
                 <div class="card-body">
                     <table class="table">
-                        <thead>
+                        <thead class="thead-dark">
                             <tr class="text-center">
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                @role('Admin')
                                 <th>Admin</th>
                                 <th>Writer</th>
                                 <th>Editor</th>
                                 <th>Publisher</th>
                                 <th></th>
+                                @endrole
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +49,7 @@
                                 <td scope="row">{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                @role('Admin')
                                 <td>
                                     @forelse ($user->roles as $role)
                                         @if($role->name == 'Admin')
@@ -133,9 +140,10 @@
                                     @endforelse
                                 </td>
                                 <td>
-                                    <a href="#" wire:click="edit({{ $user->id }})" class="btn btn-sm btn-dark">Edit</a>
+                                    <a href="#" wire:click="edit({{ $user->id }})" class="btn btn-sm btn-secondary">Edit</a>
                                     <a href="#" wire:click="delete({{ $user->id }})" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
+                                @endrole
                             </tr>
                             @endforeach
                         </tbody>
