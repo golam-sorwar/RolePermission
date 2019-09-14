@@ -12,12 +12,14 @@
                         <textarea wire:model="description" class="form-control @error('description') is-invalid @enderror" id="description" rows="3" placeholder="Description ...">{{ $description }}</textarea>
                     </div>
                     <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" wire:model="publish" type="checkbox" value="1" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Publish
-                            </label>
-                        </div>
+                        @if (!$editPost)
+                            <div class="form-check">
+                                <input class="form-check-input" wire:model="publish" type="checkbox" value="1" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Publish
+                                </label>
+                            </div>
+                        @endif
                     </div>
                     <div class="text-center">
                         @if ($editPost)
@@ -38,6 +40,15 @@
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">Updated {{ $post->updated_at->diffForHumans() }}</small>
+                            <div class="text-right">
+                                @if ($post->publish)
+                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-thumbs-up"></i></a>
+                                @else
+                                    <a href="#" class="btn btn-info btn-sm"><i class="fas fa-thumbs-down"></i></a>
+                                @endif
+                                <a href="#" wire:click="editPost({{ $post->id }})" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
+                                <a href="#" wire:click="deletePost({{ $post->id }})" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                            </div>
                         </div>
                     </div>
                 @endforeach

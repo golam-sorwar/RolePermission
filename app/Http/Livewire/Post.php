@@ -32,7 +32,7 @@ class Post extends Component
             'title' => 'required|max:20',
             'description' => 'required|max:300'
         ]);
-        
+
         AppPost::create([
             'title' => $this->title,
             'description' => $this->description,
@@ -43,10 +43,24 @@ class Post extends Component
         $this->title = $this->description = $this->publish = '';
     }
 
+    public function editPost($id)
+    {
+        $post= AppPost::find($id);
+        $this->title=$post->title;
+        $this->description = $post->description;
+
+        $this->editPost = true;
+    }
+
+    public function deletePost($id)
+    {
+        AppPost::find($id)->delete();
+    }
+
     public function render()
     {
         return view('livewire.post', [
-            'posts' => AppPost::where('publish', 1)->get()
+            'posts' => AppPost::all()
         ]);
     }
 }
