@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends Component
 {
-    public $id, $name, $email, $password;
+    public $id, $name, $email, $password, $userid;
     public $edit = false;
 
     public function mounted()
@@ -45,9 +45,13 @@ class User extends Component
         $this->name = $this->email = $this->password = '';
     }
 
-    public function AssignRole($userRole)
+    public function AssignRole($userRole, $userid)
     {
-        \dd($userRole);
+        UserInfo::find($userid)->assignRole($userRole);
+    }
+    public function RemoveRole($userRole, $userid)
+    {
+        UserInfo::find($userid)->removeRole($userRole);
     }
 
     public function edit($id)

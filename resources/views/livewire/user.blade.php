@@ -44,28 +44,93 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="Admin{{ $user->id }}" wire:click="AssignRole('Admin')">
-                                        <label class="custom-control-label" for="Admin{{ $user->id }}"></label>
-                                    </div>
+                                    @forelse ($user->roles as $role)
+                                        @if($role->name == 'Admin')
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" checked class="custom-control-input" id="Admin{{ $user->id }}" wire:click="RemoveRole('Admin', {{ $user->id }})">
+                                                <label class="custom-control-label" for="Admin{{ $user->id }}"></label>
+                                            </div>
+                                        @else
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="Admin{{ $user->id }}"
+                                                    wire:click="AssignRole('Admin', {{ $user->id }})">
+                                                <label class="custom-control-label" for="Admin{{ $user->id }}"></label>
+                                            </div>
+                                        @endif
+                                    @empty
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="Admin{{ $user->id }}"
+                                                wire:click="AssignRole('Admin', {{ $user->id }})">
+                                            <label class="custom-control-label" for="Admin{{ $user->id }}"></label>
+                                        </div>
+                                    @endforelse
                                 </td>
                                 <td>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="Writer{{ $user->id }}"  wire:click="AssignRole('Writer')">
-                                        <label class="custom-control-label" for="Writer{{ $user->id }}"></label>
-                                    </div>
+                                    @forelse ($user->roles as $role)
+                                        @if($role->name == 'Writer')
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" checked class="custom-control-input" id="Writer{{ $user->id }}"
+                                                    wire:click="RemoveRole('Writer', {{ $user->id }})">
+                                                <label class="custom-control-label" for="Writer{{ $user->id }}"></label>
+                                            </div>
+                                        @else
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="Writer{{ $user->id }}"
+                                                    wire:click="AssignRole('Writer', {{ $user->id }})">
+                                                <label class="custom-control-label" for="Writer{{ $user->id }}"></label>
+                                            </div>
+                                        @endif
+                                    @empty
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="Writer{{ $user->id }}"
+                                                wire:click="AssignRole('Writer', {{ $user->id }})">
+                                            <label class="custom-control-label" for="Writer{{ $user->id }}"></label>
+                                        </div>
+                                    @endforelse
                                 </td>
                                 <td>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="Editor{{ $user->id }}"  wire:click="AssignRole('Editor')">
-                                        <label class="custom-control-label" for="Editor{{ $user->id }}"></label>
-                                    </div>
+                                    @forelse ($user->roles as $role)
+                                        @if($role->name == 'Editor')
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" checked class="custom-control-input" id="Editor{{ $user->id }}"  wire:click="RemoveRole('Editor', {{ $user->id }})">
+                                                <label class="custom-control-label" for="Editor{{ $user->id }}"></label>
+                                            </div>
+                                        @else
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="Editor{{ $user->id }}"
+                                                    wire:click="AssignRole('Editor', {{ $user->id }})">
+                                                <label class="custom-control-label" for="Editor{{ $user->id }}"></label>
+                                            </div>
+                                        @endif
+                                    @empty
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="Editor{{ $user->id }}"
+                                                wire:click="AssignRole('Editor', {{ $user->id }})">
+                                            <label class="custom-control-label" for="Editor{{ $user->id }}"></label>
+                                        </div>
+                                    @endforelse
                                 </td>
                                 <td>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="Publisher{{ $user->id }}" wire:click="AssignRole('Publisher')">
-                                        <label class="custom-control-label" for="Publisher{{ $user->id }}"></label>
-                                    </div>
+                                    @forelse ($user->roles as $role)
+                                        @if($role->name == 'Publisher')
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" checked class="custom-control-input" id="Publisher{{ $user->id }}" wire:click="RemoveRole('Publisher', {{ $user->id }})">
+                                            <label class="custom-control-label" for="Publisher{{ $user->id }}"></label>
+                                        </div>
+                                        @else
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="Publisher{{ $user->id }}"
+                                                    wire:click="AssignRole('Publisher', {{ $user->id }})">
+                                                <label class="custom-control-label" for="Publisher{{ $user->id }}"></label>
+                                            </div>
+                                        @endif
+                                    @empty
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="Publisher{{ $user->id }}"
+                                                wire:click="AssignRole('Publisher', {{ $user->id }})">
+                                            <label class="custom-control-label" for="Publisher{{ $user->id }}"></label>
+                                        </div>
+                                    @endforelse
                                 </td>
                                 <td>
                                     <a href="#" wire:click="edit({{ $user->id }})" class="btn btn-sm btn-dark">Edit</a>
