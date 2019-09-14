@@ -64,6 +64,7 @@
                                                 <label class="custom-control-label" for="Admin{{ $user->id }}"></label>
                                             </div>
                                         @endif
+                                    @break
                                     @empty
                                         <div class="custom-control custom-switch">
                                             <input type="checkbox" class="custom-control-input" id="Admin{{ $user->id }}"
@@ -87,6 +88,7 @@
                                                 <label class="custom-control-label" for="Writer{{ $user->id }}"></label>
                                             </div>
                                         @endif
+                                    @break
                                     @empty
                                         <div class="custom-control custom-switch">
                                             <input type="checkbox" class="custom-control-input" id="Writer{{ $user->id }}"
@@ -109,6 +111,7 @@
                                                 <label class="custom-control-label" for="Editor{{ $user->id }}"></label>
                                             </div>
                                         @endif
+                                    @break
                                     @empty
                                         <div class="custom-control custom-switch">
                                             <input type="checkbox" class="custom-control-input" id="Editor{{ $user->id }}"
@@ -131,6 +134,7 @@
                                                 <label class="custom-control-label" for="Publisher{{ $user->id }}"></label>
                                             </div>
                                         @endif
+                                    @break
                                     @empty
                                         <div class="custom-control custom-switch">
                                             <input type="checkbox" class="custom-control-input" id="Publisher{{ $user->id }}"
