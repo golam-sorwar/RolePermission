@@ -42,12 +42,12 @@
                             <small class="text-muted">Updated {{ $post->updated_at->diffForHumans() }}</small>
                             <div class="text-right">
                                 @if ($post->publish)
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-thumbs-up"></i></a>
+                                    <button type="submit" wire:click="unpublishPost({{ $post->id }})" class="btn btn-success btn-sm"><i class="fas fa-thumbs-up"></i></button>
                                 @else
-                                    <a href="#" class="btn btn-info btn-sm"><i class="fas fa-thumbs-down"></i></a>
+                                    <button type="submit" wire:click="publishPost({{ $post->id }})" class="btn btn-info btn-sm"><i class="fas fa-thumbs-down"></i></button>
                                 @endif
                                 <a href="#" wire:click="editPost({{ $post->id }})" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
-                                <a href="#" wire:click="deletePost({{ $post->id }})" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                <button type="submit" wire:click="deletePost({{ $post->id }})" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>

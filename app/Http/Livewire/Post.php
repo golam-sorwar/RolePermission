@@ -36,18 +36,28 @@ class Post extends Component
         AppPost::create([
             'title' => $this->title,
             'description' => $this->description,
-            'urlToImage' => 'https://lorempixel.com/350/200/?'. $this->title,
+            'urlToImage' => 'https://lorempixel.com/350/200/?' . $this->title,
             'publish' => $this->publish
         ]);
 
         $this->title = $this->description = $this->publish = '';
     }
 
+    public function unpublishPost($id)
+    {
+        AppPost::find($id)->update(['publish' => 0]);
+    }
+
+    public function publishPost($id)
+    {
+        AppPost::find($id)->update(['publish' => 1]);
+    }
+
     public function editPost($id)
     {
-        $post= AppPost::find($id);
+        $post = AppPost::find($id);
         $this->id = $post->id;
-        $this->title=$post->title;
+        $this->title = $post->title;
         $this->description = $post->description;
 
         $this->editPost = true;
@@ -56,12 +66,12 @@ class Post extends Component
     public function updatePost($id)
     {
         $post = AppPost::find($id);
-        $post->title=$this->title;
-        $post->description=$this->description;
+        $post->title = $this->title;
+        $post->description = $this->description;
         $post->save();
 
-        $this->editPost=false;
-        $this->title=$this->description='';
+        $this->editPost = false;
+        $this->title = $this->description = '';
     }
 
     public function deletePost($id)
