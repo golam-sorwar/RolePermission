@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            @hasanyrole('Writer|Admin|Editor')
             <div class="jumbotron">
                 <div class="col-md-8 ml-auto mr-auto" style="margin-top: -3rem">
                     <div class="form-group">
@@ -11,6 +12,7 @@
                         <label for="description">Description</label>
                         <textarea wire:model="description" class="form-control @error('description') is-invalid @enderror" id="description" rows="3" placeholder="Description ...">{{ $description }}</textarea>
                     </div>
+                    @hasanyrole('Admin')
                     @if (!$editPost)
                         <div class="form-group">
                             <div class="form-check">
@@ -21,15 +23,20 @@
                             </div>
                         </div>
                     @endif
+                    @endhasanyrole
                     <div class="text-center">
                         @if ($editPost)
                             <button type="submit" wire:click="updatePost({{ $id }})" class="btn btn-outline-primary col-md-3">Update Post</button>
                         @else
+                        @hasanyrole('Admin')
                             <button type="submit" wire:click="addPost" class="btn btn-outline-success col-md-3">Add Post</button>
+                        @endhasanyrole
                         @endif
                     </div>
                 </div>
             </div>
+            @endhasanyrole
+            @hasanyrole('Admin|Editor|Publisher')
             <div class="card-columns">
                 @foreach ($posts as $post)
                     <div class="card">
@@ -41,18 +48,25 @@
                         <div class="card-footer">
                             <small class="text-muted">Updated {{ $post->updated_at->diffForHumans() }}</small>
                             <div class="text-right">
+                                @hasanyrole('Admin|Publisher')
                                 @if ($post->publish)
                                     <button type="submit" wire:click="unpublishPost({{ $post->id }})" class="btn btn-success btn-sm"><i class="fas fa-thumbs-up"></i></button>
                                 @else
                                     <button type="submit" wire:click="publishPost({{ $post->id }})" class="btn btn-info btn-sm"><i class="fas fa-thumbs-down"></i></button>
                                 @endif
+                                @endhasanyrole
+                                @hasanyrole('Admin|Editor')
                                 <a href="#" wire:click="editPost({{ $post->id }})" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
+                                @endhasanyrole
+                                @hasanyrole('Admin')
                                 <button type="submit" wire:click="deletePost({{ $post->id }})" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                @endhasanyrole
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
+            @endhasanyrole
         </div>
     </div>
 </div>

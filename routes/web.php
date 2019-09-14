@@ -22,5 +22,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::livewire('/home', 'user')->name('home');
-Route::livewire('/post', 'post')->name('post');
+Route::livewire('/post', 'post')->name('post')->middleware('auth');
 Livewire::component('user', User::class);
