@@ -46,10 +46,22 @@ class Post extends Component
     public function editPost($id)
     {
         $post= AppPost::find($id);
+        $this->id = $post->id;
         $this->title=$post->title;
         $this->description = $post->description;
 
         $this->editPost = true;
+    }
+
+    public function updatePost($id)
+    {
+        $post = AppPost::find($id);
+        $post->title=$this->title;
+        $post->description=$this->description;
+        $post->save();
+
+        $this->editPost=false;
+        $this->title=$this->description='';
     }
 
     public function deletePost($id)

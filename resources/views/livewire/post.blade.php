@@ -11,21 +11,21 @@
                         <label for="description">Description</label>
                         <textarea wire:model="description" class="form-control @error('description') is-invalid @enderror" id="description" rows="3" placeholder="Description ...">{{ $description }}</textarea>
                     </div>
-                    <div class="form-group">
-                        @if (!$editPost)
+                    @if (!$editPost)
+                        <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" wire:model="publish" type="checkbox" value="1" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Publish
                                 </label>
                             </div>
-                        @endif
-                    </div>
+                        </div>
+                    @endif
                     <div class="text-center">
                         @if ($editPost)
-                            <button type="button" wire:click="updatePost({{ $id }})" class="btn btn-outline-primary col-md-3">Update Post</button>
+                            <button type="submit" wire:click="updatePost({{ $id }})" class="btn btn-outline-primary col-md-3">Update Post</button>
                         @else
-                            <button type="button" wire:click="addPost" class="btn btn-outline-success col-md-3">Add Post</button>
+                            <button type="submit" wire:click="addPost" class="btn btn-outline-success col-md-3">Add Post</button>
                         @endif
                     </div>
                 </div>
