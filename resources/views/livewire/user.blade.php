@@ -12,7 +12,7 @@
                                 <input type="email" wire:model="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ $email }}">
                             </div>
                             <div class="col">
-                                <input type="password" wire:model="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                                <input type="password" wire:model="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" autocomplete="new-password">
                             </div>
                             @if ($edit)
                             <button type="submit" wire:click="update({{ $id }})" class="btn btn-primary">Update</button>
@@ -45,26 +45,26 @@
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="switche{{ $user->id }}">
-                                        <label class="custom-control-label" for="switche{{ $user->id }}"></label>
+                                        <input type="checkbox" class="custom-control-input" id="Admin{{ $user->id }}" wire:click="AssignRole('Admin')">
+                                        <label class="custom-control-label" for="Admin{{ $user->id }}"></label>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="switche{{ $user->id }}">
-                                        <label class="custom-control-label" for="switche{{ $user->id }}"></label>
+                                        <input type="checkbox" class="custom-control-input" id="Writer{{ $user->id }}"  wire:click="AssignRole('Writer')">
+                                        <label class="custom-control-label" for="Writer{{ $user->id }}"></label>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="switche{{ $user->id }}">
-                                        <label class="custom-control-label" for="switche{{ $user->id }}"></label>
+                                        <input type="checkbox" class="custom-control-input" id="Editor{{ $user->id }}"  wire:click="AssignRole('Editor')">
+                                        <label class="custom-control-label" for="Editor{{ $user->id }}"></label>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="switche{{ $user->id }}">
-                                        <label class="custom-control-label" for="switche{{ $user->id }}"></label>
+                                        <input type="checkbox" class="custom-control-input" id="Publisher{{ $user->id }}" wire:click="AssignRole('Publisher')">
+                                        <label class="custom-control-label" for="Publisher{{ $user->id }}"></label>
                                     </div>
                                 </td>
                                 <td>

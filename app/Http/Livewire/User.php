@@ -45,6 +45,11 @@ class User extends Component
         $this->name = $this->email = $this->password = '';
     }
 
+    public function AssignRole($userRole)
+    {
+        \dd($userRole);
+    }
+
     public function edit($id)
     {
         $info = UserInfo::find($id);
@@ -65,7 +70,7 @@ class User extends Component
         $info->name = $this->name;
         $info->email = $this->email;
         $info->email_verified_at = now();
-        if($this->password){
+        if ($this->password) {
             $info->password = Hash::make($this->password);
         }
         $info->remember_token = Str::random(10);
