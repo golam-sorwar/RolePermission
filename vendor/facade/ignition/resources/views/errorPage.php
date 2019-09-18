@@ -21,6 +21,8 @@
     <?php endforeach; ?>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+    <script src="/<?=$housekeepingEndpoint?>/assets"></script>
 </head>
 <body class="scrollbar-lg">
 
@@ -38,9 +40,10 @@
     window.tabs = <?=$tabs?>;
 </script>
 
+<noscript><pre><?=$throwableString?></pre></noscript>
+
 <div id="app"></div>
 
-<script><?= $getAssetContents('ignition.js') ?></script>
 <script>
     window.Ignition = window.ignite(window.data);
 </script>

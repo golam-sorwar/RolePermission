@@ -2,6 +2,30 @@
 
 All notable changes to `ignition` will be documented in this file
 
+## 1.7.0 - 2019-09-18
+
+- Add the ability to define a query collector max value (#153)
+
+## 1.6.10 - 2019-09-18
+
+- fix `__invoke` method name in solution (#151)
+
+## 1.6.9 - 2019-09-18
+
+- Add noscript trace information - fixes #146
+
+## 1.6.8 - 2019-09-18
+
+- Use javascript content type for asset response - fixes #149
+
+## 1.6.7 - 2019-09-18
+
+- Load javascript assets via URL. Fixes #16
+
+## 1.6.6 - 2019-09-16
+
+- Prevent undefined index exception in `TestCommand`
+
 ## 1.6.5 - 2019-09-13
 
 - Ignore invalid characters in JSON encoding. Fixes #138
